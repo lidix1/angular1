@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="es" data-ng-app>
+
+<head>
+<title>Titulo de la web</title>
+<meta charset="utf-8" />
+
+<script type="text/javascript" src="angular.min.js"></script>
+<style type="text/css">
+  .rojo{
+       color: red;
+  }
+</style>
+</head>
+
+<body ng-init="asistentes = [
+  'Luis',
+  'Erick',
+  'María',
+  'Luisa',
+  'Carmen',
+  'Mario',
+  ]">
+
+    <h2>Asistentes</h2>
+    <p ng-repeat="asistente in asistentes" class="{{check}}">
+    <input id="asist" type="checkbox" ng-model="check" ng-true-value="'rojo'"> <!-- Cuando es string usa comillas -->
+    <label for="asist">{{asistente}}</label></p>
+
+    <h3>Agregar más asistentes</h3>
+    <input type="text" ng-model="dato">
+    <button ng-click="asistentes.push(dato); dato='' ">Agregar</button>
+
+</body>
+</html>

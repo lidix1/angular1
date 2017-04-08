@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="es" data-ng-app>
+
+<head>
+<title>Titulo de la web</title>
+<meta charset="utf-8" />
+
+<script type="text/javascript" src="angular.min.js"></script>
+<style type="text/css">
+  .tachar{
+       text-decoration: underline;
+  }
+</style>
+</head>
+
+<body ng-init="tareas = [
+  'limpiar mi carro',
+  'Cocinar',
+  'Pasear al perro',
+  'Terminar el trabajo',
+  'Tareas por hacer'
+  ]">
+    {{2+2}}
+
+    <input type="text" ng-model="saludo">
+    <h1>Hola {{saludo}}</h1>
+
+
+
+    <h2>Tareas por hacer</h2>
+    <p ng-repeat="tarea in tareas" class="{{check}}">
+    <input id="check-{{$index}}" type="checkbox" ng-model="check" ng-true-value="'tachar'"> <!-- Cuando es string usa comillas -->
+    <label for="check-{{$index}}">{{tarea}}</label></p>
+
+    <h3>Agregar más tareas</h3>
+    <input type="text" ng-model="dato">
+    <button ng-click="tareas.push(dato); dato='' ">Agregar</button>
+
+</body>
+</html>
